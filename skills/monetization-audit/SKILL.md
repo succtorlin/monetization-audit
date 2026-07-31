@@ -50,16 +50,33 @@ common case of a shipped spine with an unmerged enhancement.
 Web-research the market. **Every finding gets a URL and an access date;
 prior knowledge without a source is a hypothesis to verify, not a finding.**
 
-- 2–4 comparable products: their pricing model, tiers, and actual numbers
-- The category's dominant monetization pattern (seat / usage / outcome /
-  services) and any known failures of that pattern
-- Forcing functions: regulation, procurement requirements, platform policy
-  changes that *compel* buying (verify status and dates — "in force since"
-  beats "upcoming")
-- Distribution channels: marketplaces, directories, communities where this
-  category's buyers already are
+Three evidence classes. An opportunity is not credible until it has all
+three; most analyses skip the first, which is the one that matters:
 
-Output: findings table `claim | source URL | date checked | confidence`.
+1. **Demand evidence — someone actually complaining.** Find real people
+   experiencing the pain in the wild: Reddit/forum threads, 1–2★ reviews of
+   incumbents on G2/Capterra (a low-star review of a competitor is a gap
+   map), mailing lists, conference talks, job postings that exist to do the
+   task manually. Capture each as a tight paraphrase (or a single short
+   quote) with URL + date. An idea with no complaint behind it is a
+   deduction, not an observation — mark it as such and rank it below
+   observed pain.
+2. **Market structure** — 2–4 comparables with pricing model and actual
+   numbers where findable; the category's dominant monetization pattern
+   (seat / usage / outcome / services) and known failures of that pattern;
+   distribution channels where the buyers already are.
+3. **Forcing functions** — regulation, procurement requirements, platform
+   policy changes that *compel* buying. Verify status and dates — "in
+   force since" beats "upcoming", and deadlines move (check for
+   extensions dated after your training data).
+
+Search tactics for demand evidence: `site:reddit.com <incumbent> hate|awful|
+workaround`, `<task> spreadsheet manual` (manual workarounds = unpriced
+demand), incumbent names in r/ communities where the buyer's role lives,
+review-site sort-by-lowest.
+
+Output: findings table `id | class (demand/market/forcing) | claim |
+source URL | date checked | confidence`.
 
 ## Phase 3 — Gap analysis
 
@@ -74,9 +91,28 @@ Diff Phase 1 against Phase 2 in both directions:
 
 Rank by distance-to-revenue, not by size of opportunity.
 
-## Phase 4 — Action specs, not recommendations
+## Phase 4 — Idea dossiers, then action specs
 
-Each proposal becomes a spec an agent can execute. Format:
+Each opportunity gets a **dossier** before any spec — the analysis a human
+uses to believe or kill the idea:
+
+```markdown
+## Opportunity <n>: <name>
+- **The pain, observed**: 2+ demand-evidence findings (paraphrase + link +
+  date). If none exist, say "deduced, not observed" prominently.
+- **Why us**: capability fit — which Phase 1 assets (cited by path) cover
+  what fraction of the solution; what's genuinely differentiated vs
+  commodity.
+- **The gap**: precisely what stands between the assets and the first
+  dollar — packaging, artifact, security gate, channel. Not "marketing".
+- **Monetization procedure**: numbered path to first revenue — who exactly
+  to approach, through which channel, at what price anchor (cite the comp),
+  what the first transaction looks like, and what converts it to recurring.
+- **Kill criteria**: what evidence would falsify this idea cheaply.
+```
+
+Then each dossier's next concrete work becomes a spec an agent can execute.
+Format:
 
 Two kinds of spec are legal:
 
@@ -121,7 +157,8 @@ report contract applies to full audits only.
 |---|---|
 | Auditing from conversation memory | Phase 1 reads the repo; cite paths |
 | Market claims from training data | No URL + date → not a finding |
-| "You could build a SaaS" advice | Every proposal is an AS-spec or it's cut |
+| Ideas justified only by regulation or market size | Every idea needs observed pain — a real complaint, linked and dated — or an explicit "deduced, not observed" label |
+| "You could build a SaaS" advice | Every proposal is a dossier + AS-spec or it's cut |
 | Counting dead/demo code as assets | Verify consumers and routes exist |
 | Ignoring what's needed to *charge* | Execution gaps are first-class findings |
-| Ranking by opportunity size | Rank by distance-to-revenue |
+| Ranking by opportunity size | Rank by distance-to-revenue, demand-evidenced ideas above deduced ones |
