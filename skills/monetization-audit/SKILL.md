@@ -23,6 +23,77 @@ When NOT to use: picking which *skill* to productize (use skill-productizer —
 its 13-forms taxonomy is the vocabulary for Phase 4 here); inventorying
 personal assets across projects (use productize-real-assets).
 
+## Two modes
+
+- **Solo** (default): one agent runs Phases 1–4. Right for a first pass or a
+  bounded question.
+- **Team** (consulting-grade): the four phases are decomposed into specialist
+  workstreams run by recruited agents, with a mandatory adversarial pass and
+  a real synthesis. Invoke when the user asks for depth ("extensive",
+  "thorough", "like McKinsey/BCG", "recruit a team"), when a solo pass was
+  judged too shallow, or when the findings will drive a real investment
+  decision. Team mode is expensive — each specialist is a full agent run;
+  say so and get the user's go-ahead before dispatching a full engagement.
+
+## Team mode — the engagement model
+
+Structure it like a consulting engagement, not like more searching.
+
+### 1. Frame before recruiting
+
+Write the **key question** in one sentence, then decompose it into a MECE
+issue tree (3–6 branches). Each branch gets a **hypothesis stated as
+falsifiable** ("Chairs will pay outside money for waiver evidence packages")
+— workstreams exist to prove or kill hypotheses, never to "look into" topics.
+An agent sent to "research the market" returns a book report; an agent sent
+to falsify a hypothesis returns a verdict.
+
+### 2. Recruit the workstreams
+
+Pick from this roster what the issue tree needs — typically 4–6. Each gets:
+its hypotheses, the relevant prior findings, an output contract, and
+**independence** (no seeing other workstreams' drafts — synthesis happens
+at the end, not by consensus during).
+
+| Role | Mission | Output contract |
+|---|---|---|
+| **Demand analyst** | Voice-of-customer sweep per hypothesis: forums, low-star incumbent reviews, news with named sources, job postings for the manual task. Multi-modal — each search angle blind to the others | Findings table (`id/class/claim/source/date/confidence`) + per-hypothesis verdict: supported / refuted / no evidence found |
+| **Market & pricing analyst** | Comps, actual contract values (board minutes, procurement disclosures, GSA/state records), pricing models, channel structure | Same table + a pricing anchor per opportunity with primary-source preference |
+| **Domain buyer expert** (persona: e.g. former provost, CIO, dean — match to the market) | Critique each opportunity from the buyer's chair: budget line, approval path, thresholds, committee dynamics, what kills deals like this | **Judgment memo, explicitly labelled as expert judgment, zero fabricated citations.** Value = realistic objections and process knowledge; every checkable claim it makes goes on the verification list |
+| **Product/tech assessor** | Read the actual repo: capability fit per opportunity (% built, cited by path), build cost of the gap, what's commodity vs moat | Fit matrix `opportunity × (built %, gap, effort, moat)` with file-path evidence |
+| **GTM strategist** | First-10-customers plan per surviving opportunity: named segment, channel, price structure, the first transaction's shape | Channel plan + prospect-list source per opportunity |
+| **Red team** | Kill each opportunity. Argue the bear case with evidence; attack the other workstreams' weakest links | Per-opportunity: kill-shots attempted, which landed, verdict `killed / wounded (condition) / survived` |
+
+Personas are a tool for judgment, not facts: a "former provost" agent knows
+how approval flows work but cannot cite what it hasn't read. The contract
+forbids invented sources; anything factual it asserts is routed to the
+analysts for verification.
+
+### 3. Sequence
+
+```
+frame → [demand ∥ market ∥ buyer-expert ∥ tech-assessor] → red team (sees all) → synthesis
+```
+
+Independent parallel first (prevents groupthink), red team second (needs
+everything to attack), synthesis last. GTM runs with wave one if channels
+are independent of findings, after red team if not.
+
+### 4. Synthesize like a partner, not a stapler
+
+- **Pyramid principle**: lead with the answer to the key question, then the
+  supporting structure. Workstream reports go to an appendix.
+- **Disagreements are findings.** When the buyer expert and the demand
+  analyst conflict, report the conflict and what would resolve it — never
+  average it away.
+- **The red team's surviving objections ship in the main body**, not a
+  footnote. An engagement that reports only the bull case is sales copy.
+- Every opportunity ends in the dossier format (below) with a
+  **confidence grade A–D**: A = multi-source demand + surviving red team;
+  D = deduced, unchallenged, or expert-judgment-only.
+- Deliverable: one report. Executive summary (≤1 page), issue tree with
+  verdicts, dossiers, appendices per workstream with their tables intact.
+
 ## Phase 1 — Scan the project, not the pitch
 
 Inventory from the repo and running state, never from memory or the README's
@@ -61,6 +132,16 @@ three; most analyses skip the first, which is the one that matters:
    quote) with URL + date. An idea with no complaint behind it is a
    deduction, not an observation — mark it as such and rank it below
    observed pain.
+
+   **Then re-read every demand finding for revealed preference:** *how* are
+   the observed people currently solving the pain? If the answer is
+   "in-house, with salaried staff" (a working group, an IR office, the
+   complainer doing it themselves), that is **disconfirming** evidence for a
+   paid outside solution no matter how loud the pain — a real audit misread
+   exactly this, counting institutions' internal waiver committees as proof
+   they'd pay a vendor. Pain + in-house execution = evidence for a
+   capacity/relief sale to the office drowning in the work, at best — not
+   for the per-unit product you were imagining.
 2. **Market structure** — 2–4 comparables with pricing model and actual
    numbers where findable; the category's dominant monetization pattern
    (seat / usage / outcome / services) and known failures of that pattern;
@@ -162,3 +243,6 @@ report contract applies to full audits only.
 | Counting dead/demo code as assets | Verify consumers and routes exist |
 | Ignoring what's needed to *charge* | Execution gaps are first-class findings |
 | Ranking by opportunity size | Rank by distance-to-revenue, demand-evidenced ideas above deduced ones |
+| Team mode as more-of-the-same searching | Workstreams falsify hypotheses from the issue tree, independently, with an adversarial pass — otherwise it's one shallow pass at 6× cost |
+| Persona experts "citing" sources | Personas produce labelled judgment; every checkable claim routes to an analyst for verification |
+| Synthesis by concatenation | Lead with the answer; surface disagreements; ship the red team's surviving objections in the main body |
