@@ -28,6 +28,13 @@ Pairs with [skill-productizer](https://github.com/SpaceZephyr/skill-productizer)
 ## Install
 
 ```bash
+npx skills add succtorlin/monetization-audit
+```
+
+(installs for Claude Code, Codex, Cursor, Gemini CLI and other agents via the
+[skills CLI](https://github.com/vercel-labs/skills)) — or manually:
+
+```bash
 git clone https://github.com/succtorlin/monetization-audit.git
 cp -r monetization-audit/skills/monetization-audit ~/.claude/skills/
 ```
